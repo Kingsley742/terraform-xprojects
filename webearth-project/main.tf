@@ -42,3 +42,10 @@ module "name" {
   source       = "../modules/ecs-tasks-execution-role"
   project_name = module.vpc.project_name
 }
+
+# Request SSL certificate (for domain name) from ACM - AWS Certificate Manager
+module "acm" {
+  source           = "../modules/acm"
+  domain_name      = var.domain_name
+  alternative_name = var.alternative_name
+}
